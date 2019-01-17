@@ -1,0 +1,13 @@
+<launch>
+
+  <include ns="antenna" file="$(find opu_ros)/launch/opu1p85-antenna.launch" />
+
+  <include ns="encoder" file="$(find opu_ros)/launch/opu1p85-encoder.launch" />
+
+  <include ns="hot" file="$(find opu_ros)/launch/opu1p85-hot.launch" />
+
+  <include ns="spectrometer" file="$(find opu_ros)/launch/opu1p85-spectrometer.launch" />
+
+  <include ns="obs" file="$(find opu_ros)/launch/opu1p85-obs.launch" />
+
+</launch>
