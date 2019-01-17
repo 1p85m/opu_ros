@@ -47,7 +47,6 @@ class encorder(object):
                 self.pub_el.publish(msg)
 
     def which_encorder(self):
-
         self.ser_az = serial.Serial("/dev/ttyUSB0",38400,timeout=1,parity="E",bytesize=7,stopbits=2)
         self.ser_el = serial.Serial("/dev/ttyUSB1",38400,timeout=1,parity="E",bytesize=7,stopbits=2)
 
