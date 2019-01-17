@@ -35,12 +35,10 @@ class Antenna(object):
 
         rospy.Subscriber('stop_cmd', Bool, self.stop_move, queue_size=1)
 
-        topic_from_az = rospy.Subscriber("/antenna/az_lock", Bool, self.set_flag_az, queue_size = 1)
-
-        topic_from_el = rospy.Subscriber("/antenna/el_lock", Bool, self.set_flag_el, queue_size = 1)
-
+        rospy.Subscriber("/antenna/az_lock", Bool, self.set_flag_az, queue_size = 1)
+        rospy.Subscriber("/antenna/el_lock", Bool, self.set_flag_el, queue_size = 1)
+    
         self.topic_az = rospy.Publisher("/antenna/az_cmd", Float64, queue_size = 1)
-
         self.topic_el = rospy.Publisher("/antenna/el_cmd", Float64, queue_size = 1)
 
         pass

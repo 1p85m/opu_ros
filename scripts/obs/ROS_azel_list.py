@@ -35,7 +35,6 @@ class azel_list(object):
         rospy.Subscriber("wc_hosei", String, self._receive_hosei, queue_size=1)
         rospy.Subscriber("wc_lamda", Float64, self._receive_lamda, queue_size=1)
         rospy.Subscriber("wc_limit", Bool, self._receive_limit, queue_size=1)
-        rospy.Subscriber("wc_rotation", Bool, self._receive_rotation, queue_size=1)
         rospy.Subscriber("wc_from_node", String, self._receive_from_node, queue_size=1)
         rospy.Subscriber("wc_timestamp", Float64, self._receive_timestamp, queue_size=1)
         rospy.Subscriber("stop_cmd", Bool, self._stop, queue_size=1)
@@ -73,9 +72,6 @@ class azel_list(object):
 
     def _receive_limit(self, q):
         self.limit = q.data
-
-    def _receive_rotation(self, q):
-        self.rotation = q.data
 
     def _receive_from_node(self, q):
         self.node = q.data
@@ -123,7 +119,6 @@ class azel_list(object):
                 hosei = self.hosei
                 lamda = self.lamda
                 limit = self.limit
-                rotation = self.rotation
 
             if self.stop_flag == False:
                 if len(x_list) > 2:
@@ -191,9 +186,7 @@ class azel_list(object):
 
                     ret = self.calc.coordinate_calc(x_list2, y_list2, astro_time,
                                                     coord, off_az, off_el,
-                                                    hosei, lamda, limit, rotation)
-                    if rotation:
-                        ret[0] = self.negative_change(ret[0])
+                                                    hosei, lamda, limit)
 
                 else:
                     limit_flag = True
@@ -248,28 +241,10 @@ class azel_list(object):
                 hosei = ""
                 lamda = ""
                 limit = ""
-                rotation = ""
+
                 pass
             time.sleep(0.1)
         return
-
-#cable check
-    def negative_change(self, az_list):
-        print(az_list)
-
-        if all((-240*3600<i< 240*3600. for i in az_list)):
-            pass
-        elif all((i<-110*3600. for i in az_list)):
-            az_list = [i+360*3600. for i in az_list]
-        elif all((i>110*3600. for i in az_list)):
-            az_list = [i-360*3600. for i in az_list]
-        elif all((-270*3600<i< 270*3600. for i in az_list)):
-            pass
-        elif any((i>=340*3600. for i in az_list)) and any((i<=20*3600. for i in az_list)):
-            az_list = [i-360*3600. if i>=340*3600 else i for i in az_list]
-        else:
-            print("Az limit error.")
-        return az_list
 
 
 

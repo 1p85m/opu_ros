@@ -52,7 +52,6 @@ class worldcoord(object):
         self.pub_hosei = rospy.Publisher("wc_hosei", String, queue_size=1)
         self.pub_lamda = rospy.Publisher("wc_lamda", Float64, queue_size=1)
         self.pub_limit = rospy.Publisher("wc_limit", Bool, queue_size=1)
-        self.pub_rotatin = rospy.Publisher("wc_rotation", Bool, queue_size=1)
         self.pub_timestamp = rospy.Publisher("wc_timestamp", Float64, queue_size=1)
 
         self.thread_start = threading.Thread(target=self.create_list)
