@@ -1,0 +1,9 @@
+<launch>
+
+  <include ns="necctrl" file="$(find opu_ros)/launch/necctrl-boards.launch" />
+
+  <include ns="antenna" file="$(find opu_ros)/launch/necctrl-antenna.launch" />
+
+  <include ns="encoder" file="$(find opu_ros)/launch/necctrl-encoder.launch" />
+
+</launch>

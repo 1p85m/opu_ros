@@ -1,0 +1,10 @@
+<launch>
+
+  <include file="$(find opu_ros)/launch/necobs.launch" />
+
+  <group>
+    <machine name="necctrl" address="necctrl" env-loader="/root/ros/devel/env.sh" user="root" password="root" />
+    <include file="$(find opu_ros)/launch/necctrl.launch" />
+  </group>
+
+</launch>
