@@ -1,0 +1,9 @@
+<launch>
+
+  <include ns="opuctrl" file="$(find opust_ros)/launch/opuctrl-boards.launch" />
+
+  <include ns="antenna" file="$(find opust_ros)/launch/opuctrl-antenna.launch" />
+
+  <include ns="encoder" file="$(find opust_ros)/launch/opuctrl-encoder.launch" />
+
+</launch>

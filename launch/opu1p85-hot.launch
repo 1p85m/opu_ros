@@ -2,16 +2,16 @@
 
   <node name = "hot_position_writer"
         type = "relay.py"
-        pkg = "opu_ros">
+        pkg = "opust_ros">
     <param name = "config_file"
-           value = "$(find opu_ros)/relay_conf/hot_position_writer.conf" />
+           value = "$(find opust_ros)/relay_conf/hot_position_writer.conf" />
   </node>
 
   <node name = "hot_position_reader"
         type = "relay.py"
-        pkg = "opu_ros">
+        pkg = "opust_ros">
     <param name = "config_file"
-           value = "$(find opu_ros)/relay_conf/hot_position_reader.conf" />
+           value = "$(find opust_ros)/relay_conf/hot_position_reader.conf" />
   </node>
 
 </launch>

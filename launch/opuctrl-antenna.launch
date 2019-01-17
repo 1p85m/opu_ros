@@ -1,15 +1,15 @@
 <launch>
   <node name = "az_commander_pid"
         type = "antenna_az_commander_pid.py"
-        pkg = "opu_ros"
+        pkg = "opust_ros"
         output = "log"
-        machine = "necctrl">
+        machine = "opuctrl">
   </node>
-  
+
   <node name = "el_commander_pid"
         type = "antenna_el_commander_pid.py"
-        pkg = "opu_ros"
+        pkg = "opust_ros"
         output = "log"
-        machine = "necctrl">
+        machine = "opuctrl">
   </node>
 </launch>

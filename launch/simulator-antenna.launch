@@ -2,17 +2,17 @@
 
   <node name = "antenna_az_commander_pid"
         type = "antenna_az_commander_pid.py"
-        pkg = "opu_ros">
+        pkg = "opust_ros">
   </node>
 
   <node name = "antenna_el_commander_pid"
         type = "antenna_el_commander_pid.py"
-        pkg = "opu_ros">
+        pkg = "opust_ros">
   </node>
 
   <node name = "antenna_error_simulator"
         type = "antenna_error_simulator.py"
-        pkg = "opu_ros">
+        pkg = "opust_ros">
   </node>
 
 </launch>

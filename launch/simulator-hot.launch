@@ -2,7 +2,7 @@
 
   <node name = "hot_position_simulator"
         type = "hot_position_sim.py"
-        pkg = "opu_ros">
+        pkg = "opust_ros">
   </node>
 
 </launch>

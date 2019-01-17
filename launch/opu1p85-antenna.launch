@@ -2,66 +2,66 @@
 
   <node name = "antenna_error_reader"
         type = "relay.py"
-        pkg = "opu_ros">
+        pkg = "opust_ros">
     <param name = "config_file"
-           value = "$(find opu_ros)/relay_conf/antenna_error_reader.conf" />
+           value = "$(find opust_ros)/relay_conf/antenna_error_reader.conf" />
   </node>
 
   <node name = "az_soft_limit"
         type = "relay.py"
-        pkg = "opu_ros">
+        pkg = "opust_ros">
     <param name = "config_file"
-           value = "$(find opu_ros)/relay_conf/antenna_az_soft_limit.conf" />
+           value = "$(find opust_ros)/relay_conf/antenna_az_soft_limit.conf" />
   </node>
 
 <!--
   <node name = "az_commander_pid"
         type = "antenna_az_commander_pid.py"
-        pkg = "opu_ros"
+        pkg = "opust_ros"
         output = "screen">
   </node>
 -->
 
   <node name = "az_cmd_writer"
         type = "relay.py"
-        pkg = "opu_ros">
+        pkg = "opust_ros">
     <param name = "config_file"
-           value = "$(find opu_ros)/relay_conf/antenna_az_cmd_writer.conf" />
+           value = "$(find opust_ros)/relay_conf/antenna_az_cmd_writer.conf" />
   </node>
 
   <node name = "az_stop_commander"
         type = "relay.py"
-        pkg = "opu_ros">
+        pkg = "opust_ros">
     <param name = "config_file"
-           value = "$(find opu_ros)/relay_conf/antenna_az_stop_commander.conf" />
+           value = "$(find opust_ros)/relay_conf/antenna_az_stop_commander.conf" />
   </node>
 
   <node name = "el_soft_limit"
         type = "relay.py"
-        pkg = "opu_ros">
+        pkg = "opust_ros">
     <param name = "config_file"
-           value = "$(find opu_ros)/relay_conf/antenna_el_soft_limit.conf" />
+           value = "$(find opust_ros)/relay_conf/antenna_el_soft_limit.conf" />
   </node>
 
 <!--
   <node name = "el_commander_pid"
         type = "antenna_el_commander_pid.py"
-        pkg = "opu_ros">
+        pkg = "opust_ros">
   </node>
 -->
- 
+
   <node name = "el_cmd_writer"
         type = "relay.py"
-        pkg = "opu_ros">
+        pkg = "opust_ros">
     <param name = "config_file"
-           value = "$(find opu_ros)/relay_conf/antenna_el_cmd_writer.conf" />
+           value = "$(find opust_ros)/relay_conf/antenna_el_cmd_writer.conf" />
   </node>
 
   <node name = "el_stop_commander"
         type = "relay.py"
-        pkg = "opu_ros">
+        pkg = "opust_ros">
     <param name = "config_file"
-           value = "$(find opu_ros)/relay_conf/antenna_el_stop_commander.conf" />
+           value = "$(find opust_ros)/relay_conf/antenna_el_stop_commander.conf" />
   </node>
 
 </launch>
