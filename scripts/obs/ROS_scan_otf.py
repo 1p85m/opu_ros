@@ -11,7 +11,7 @@ from std_msgs.msg import Float64MultiArray
 import time
 import threading
 import sys
-sys.path.append("/home/amigos/ros/src/necst/lib/")
+sys.path.append("/home/exito/ros/src/necst/lib/")
 sys.path.append("/home/amigos/ros/src/necst/lib/")
 import calc_offset
 
