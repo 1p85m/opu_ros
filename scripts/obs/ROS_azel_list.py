@@ -12,8 +12,8 @@ from datetime import datetime
 from astropy.time import Time
 import time
 import sys
-sys.path.append("/home/exito/ros/src/opust_ros/lib/")
-sys.path.append("/home/opust/ros/src/opust_ros/lib/")
+sys.path.append("/home/exito/ros/src/opust/lib/")
+sys.path.append("/home/opust/ros/src/opust/lib/")
 import calc_coord
 
 
