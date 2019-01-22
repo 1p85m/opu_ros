@@ -24,7 +24,7 @@ class worldcoord(object):
     coord_sys = 0
     dx = 0
     dy = 0
-    dx = 0
+    dt = 0
     num = 0
     delay = 0
     rampt = 0
@@ -36,7 +36,7 @@ class worldcoord(object):
     lamda = 0
     limit = 0
     hosei = 0
-    timestamp=0 
+    timestamp=0
 
     def __init__(self):
 

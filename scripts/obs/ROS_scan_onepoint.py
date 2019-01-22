@@ -19,8 +19,8 @@ node_name = "worldcoordinate_onepoint"
 
 class worldcoord(object):
 
-    x = []
-    y = []
+    x = 0
+    y = 0
     coord = 0
     planet = 0
     off_az = 0
@@ -31,7 +31,7 @@ class worldcoord(object):
     dcos = 0
     limit = 0
     hosei = 0
-    timestamp=0 
+    timestamp=0
 
     def __init__(self):
 
