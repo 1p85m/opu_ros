@@ -2,9 +2,9 @@
 
   <node name = "encoder_origin_commander"
         type = "relay.py"
-        pkg = "opust_ros3">
+        pkg = "opust_ros">
     <param name = "config_file"
-           value = "$(find opust_ros3)/relay_conf/encoder_origin_commander.conf" />
+           value = "$(find opust_ros)/relay_conf/encoder_origin_commander.conf" />
   </node>
 
 </launch>
