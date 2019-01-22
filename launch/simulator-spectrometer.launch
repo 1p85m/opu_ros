@@ -9,7 +9,7 @@
 
   <node name = "achilles_oneshot_simulator"
         type = "achilles_oneshot_simulator.py"
-        pkg = "opust_ros3">
+        pkg = "opust_ros">
   </node>
 
 </launch>
