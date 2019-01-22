@@ -2,8 +2,9 @@
 
   <include ns="antenna" file="$(find opust_ros)/launch/opu1p85-antenna.launch" />
   <include ns="antenna" file="$(find opust_ros)/launch/simulator-antenna.launch" />
-
+<!--
   <include ns="encoder" file="$(find opust_ros)/launch/opu1p85-encoder.launch" />
+-->
   <include ns="encoder" file="$(find opust_ros)/launch/simulator-encoder.launch" />
 
   <include ns="hot" file="$(find opust_ros)/launch/opu1p85-hot.launch" />
