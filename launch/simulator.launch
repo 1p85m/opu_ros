@@ -7,8 +7,9 @@
   <include ns="encoder" file="$(find opust_ros)/launch/simulator-encoder.launch" />
 
   <include ns="hot" file="$(find opust_ros)/launch/opu1p85-hot.launch" />
+<!--
   <include ns="hot" file="$(find opust_ros)/launch/simulator-hot.launch" />
-
+-->
   <include ns="spectrometer" file="$(find opust_ros)/launch/opu1p85-spectrometer.launch" />
   <include ns="spectrometer" file="$(find opust_ros)/launch/simulator-spectrometer.launch" />
 
