@@ -12,7 +12,7 @@ import time
 from datetime import datetime as dt
 import threading
 import sys
-sys.path.append("/home/exito/ros/src/opust/lib/")
+sys.path.append("/home/exito/ros/src/opust_ros/lib/")
 import calc_offset
 
 node_name = "worldcoordinate_onepoint"

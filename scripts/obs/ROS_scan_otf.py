@@ -11,8 +11,8 @@ from std_msgs.msg import Float64MultiArray
 import time
 import threading
 import sys
-sys.path.append("/home/exito/ros/src/opust/lib/")
-sys.path.append("/home/opust/ros/src/opust/lib/")
+sys.path.append("/home/exito/ros/src/opust_ros/lib/")
+sys.path.append("/home/opust/ros/src/opust_ros/lib/")
 import calc_offset
 
 node_name = "worldcoordinate_otf"
