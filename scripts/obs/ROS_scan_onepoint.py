@@ -32,6 +32,7 @@ class worldcoord(object):
     limit = 0
     hosei = 0
     timestamp=0
+    from_node=0
 
     def __init__(self):
 
@@ -47,7 +48,7 @@ class worldcoord(object):
         rospy.Subscriber("ps_dcos", Float64, self._receive_dcos, queue_size=1)
         rospy.Subscriber("ps_limit", Bool, self._receive_limit, queue_size=1)
 
-        rospy.Subscriber("ps_from_node", from_node, self._receive_from_node, queue_size=1)
+        rospy.Subscriber("ps_from_node", String, self._receive_from_node, queue_size=1)
         rospy.Subscriber("ps_timestamp", Float64, self._receive_timestamp, queue_size=1)
 
         self.pub_x_list = rospy.Publisher("wc_x_list", Float64MultiArray, queue_size=1)
