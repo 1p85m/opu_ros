@@ -132,22 +132,22 @@ class worldcoord(object):
             limit = self.limit
             timestamp = self.timestamp
 
-            self.x　= ""
-            self.y　= ""
-            self.coord_sys　= ""
-            self.dx　= ""
-            self.dy　= ""
-            self.dt　= ""
-            self.num　= ""
-            self.rampt　= ""
-            self.delay　= ""
-            self.off_x　= ""
-            self.off_y　= ""
-            self.dcos　= ""
-            self.hosei　= ""
-            self.lamda　= ""
-            self.limit　= ""
-            self.timestamp　= ""
+            self.x= ""
+            self.y= ""
+            self.coord_sys= ""
+            self.dx= ""
+            self.dy= ""
+            self.dt= ""
+            self.num= ""
+            self.rampt= ""
+            self.delay= ""
+            self.off_x= ""
+            self.off_y= ""
+            self.dcos= ""
+            self.hosei= ""
+            self.lamda= ""
+            self.limit= ""
+            self.timestamp= ""
 
             if timestamp:
                 print("start_create_list")
