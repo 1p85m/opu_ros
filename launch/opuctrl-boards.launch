@@ -1,43 +1,35 @@
 <launch>
 
   <node pkg="pci_boards_driver"
-        name="cpz2724m_rsw0"
-        type="cpz2724m.py"
+        name="cpz7415v_rsw0"
+        type="cpz7415.py"
         output="log"
         machine="opuctrl">
     <param name="~rsw_id" value="0" />
   </node>
-
-  <node pkg="pci_boards_driver"
-        name="cpz2724m_rsw1"
-        type="cpz2724m.py"
+     
+  <node pkg="pci_boards_driver" 
+        name="cpz3177_rsw0" 
+        type="cpz3177.py"
         output="log"
         machine="opuctrl">
     <param name="~rsw_id" value="1" />
   </node>
 
   <node pkg="pci_boards_driver"
-        name="cpz2724m_rsw2"
-        type="cpz2724m.py"
+        name="cpz_rsw0" 
+        type="cpz340516.py"
         output="log"
         machine="opuctrl">
     <param name="~rsw_id" value="2" />
   </node>
 
   <node pkg="pci_boards_driver"
-        name="cpz6204_rsw0"
-        type="cpz6204.py"
+        name="cpz340816_rsw0"
+        type="cpz340816.py"
         output="log"
         machine="opuctrl">
-    <param name="~rsw_id" value="0" />
-  </node>
-
-  <node pkg="pci_boards_driver"
-        name="cpz6204_rsw1"
-        type="cpz6204.py"
-        output="log"
-        machine="opuctrl">
-    <param name="~rsw_id" value="1" />
+    <param name="~rsw_id" value="3" />
   </node>
 
 </launch>
