@@ -29,7 +29,7 @@ class worldcoord(object):
         rospy.Subscriber("ps_planet", String, self._receive_planet, queue_size=1)
         rospy.Subscriber("ps_off_x", Float64, self._receive_off_x, queue_size=1)
         rospy.Subscriber("ps_off_y", Float64, self._receive_off_y, queue_size=1)
-        rospy.Subscriber("ps_offcoord" ,Stiring, self._receive_offcoord, queue_size=1)
+        rospy.Subscriber("ps_offcoord" ,String, self._receive_offcoord, queue_size=1)
         rospy.Subscriber("ps_hosei", String, self._receive_hosei, queue_size=1)
         rospy.Subscriber("ps_lamda", Float64, self._receive_lamda, queue_size=1)
         rospy.Subscriber("ps_dcos", Float64, self._receive_dcos, queue_size=1)
