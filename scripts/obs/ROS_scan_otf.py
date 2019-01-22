@@ -115,7 +115,7 @@ class worldcoord(object):
     def create_list(self):
         self.from_node = node_name
         while not rospy.is_shutdown():
-            x = 1
+            x = self.x
             y = self.y
             coord_sys = self.coord_sys
             dx = self.dx
