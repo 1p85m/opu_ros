@@ -51,7 +51,7 @@ class azel_calc(object):
         target_el = el+ret[1]
         return target_az, target_el
 
-    def coordinate_calc(self, x_list, y_list, time_list, coord, off_az, off_el, hosei, lamda,　limit=True, rotation=True):
+    def coordinate_calc(self, x_list, y_list, time_list, coord, off_az, off_el, hosei, lamda, limit=True, rotation=True):
         """
         x_list and y_list == [deg]
         """
