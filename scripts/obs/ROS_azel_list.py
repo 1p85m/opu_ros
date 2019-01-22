@@ -24,6 +24,15 @@ class azel_list(object):
 
     stop_flag = False
     timelist = 0
+    x_list = []
+    y_list = []
+    coord = 0
+    off_az = 0
+    off_el = 0
+    hosei = 0
+    lamda = 0
+    limit = 0
+    node = 0
 
     def __init__(self):
         self.start_time = time.time()
