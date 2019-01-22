@@ -141,8 +141,8 @@ class worldcoord(object):
             num = self.num
             rampt = self.rampt
             delay = self.delay
-            off_x = self.off_x
-            off_y = self.off_y
+            off_az = self.off_az
+            off_el = self.off_el
             dcos = self.dcos
             hosei = self.hosei
             lamda = self.lamda
@@ -158,8 +158,8 @@ class worldcoord(object):
             self.num= ""
             self.rampt= ""
             self.delay= ""
-            self.off_x= ""
-            self.off_y= ""
+            self.off_az= ""
+            self.off_el= ""
             self.dcos= ""
             self.hosei= ""
             self.lamda= ""
@@ -169,13 +169,13 @@ class worldcoord(object):
             if timestamp:
                 print("start_create_list")
                 #ret = calc_offset.calc_offset(command.x, command.y, command.coord,
-                #                              command.off_x, command.off_y, command.offcoord,
+                #                              command.off_az, command.off_y, command.offcoord,
                 #                              command.dcos)
 
-                start_x = off_x-float(dx)/2.-float(dx)/float(dt)*rampt
+                start_x = off_az-float(dx)/2.-float(dx)/float(dt)*rampt
                 start_y = off_y-float(dy)/2.-float(dy)/float(dt)*rampt
                 total_t = rampt + dt * num
-                end_x = off_x + dx * (num - 0.5)
+                end_x = off_az + dx * (num - 0.5)
                 end_y = off_y + dy * (num - 0.5)
                 print(start_x, end_x, x)
                 #off_dx_vel = (end_x - start_x) / total_t #(obs_end - obs_start)

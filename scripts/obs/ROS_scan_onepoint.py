@@ -82,6 +82,9 @@ class worldcoord(object):
     def _receive_coord(self, q):
         self.coord = q.data
 
+    def _receive_offcoord(self, q):
+        self.coord = q.data
+
     def _receive_planet(self, q):
         self.planet = q.data
 
