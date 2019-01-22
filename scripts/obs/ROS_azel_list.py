@@ -23,6 +23,7 @@ node_name = "azel_list"
 class azel_list(object):
 
     stop_flag = False
+    time_list = 0
 
     def __init__(self):
         self.start_time = time.time()
