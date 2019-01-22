@@ -19,7 +19,24 @@ node_name = "worldcoordinate_otf"
 
 class worldcoord(object):
 
-    msg = ""
+    x = 0
+    y = 0
+    coord_sys = 0
+    dx = 0
+    dy = 0
+    dx = 0
+    num = 0
+    delay = 0
+    rampt = 0
+    off_az = 0
+    off_el = 0
+    offcoord =0
+    dcos = 0
+    hosei = 0
+    lamda = 0
+    limit = 0
+    hosei = 0
+    timestamp=0 
 
     def __init__(self):
 

@@ -19,7 +19,19 @@ node_name = "worldcoordinate_onepoint"
 
 class worldcoord(object):
 
-    msg = ""
+    x = []
+    y = []
+    coord = 0
+    planet = 0
+    off_az = 0
+    off_el = 0
+    off_coord = 0
+    hosei = 0
+    lamda = 0
+    dcos = 0
+    limit = 0
+    hosei = 0
+    timestamp=0 
 
     def __init__(self):
 
