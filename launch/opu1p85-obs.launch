@@ -14,12 +14,12 @@
         type = "ROS_scan_otf.py"
         pkg = "opust_ros">
   </node>
-
+<!--
   <node name = "worldcoordinate_planet"
         type = "ROS_scan_planet.py"
         pkg = "opust_ros">
   </node>
-
+-->
   <node name = "antenna_move"
         type = "antenna.py"
         pkg = "opust_ros">
