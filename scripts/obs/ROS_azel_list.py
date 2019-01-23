@@ -22,17 +22,18 @@ node_name = "azel_list"
 
 class azel_list(object):
 
-    stop_flag = False
-    timelist = 0
+
+    timelist = []
     x_list = []
     y_list = []
-    coord = 0
+    coord = ""
     off_az = 0
     off_el = 0
-    hosei = 0
+    hosei = ""
     lamda = 0
     limit = 0
-    node = 0
+    node = ""
+    stop_flag = False
 
     def __init__(self):
         self.start_time = time.time()

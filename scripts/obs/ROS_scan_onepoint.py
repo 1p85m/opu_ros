@@ -25,14 +25,14 @@ class worldcoord(object):
     planet = 0
     off_az = 0
     off_el = 0
-    off_coord = 0
-    hosei = 0
+    off_coord = ""
+    hosei = ""
     lamda = 0
     dcos = 0
-    limit = 0
+    limit = False
     hosei = 0
     timestamp=0
-    from_node=0
+    from_node=""
 
     def __init__(self):
 
