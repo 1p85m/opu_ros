@@ -50,7 +50,7 @@ class antenna_el_feedback(object):
 
     def antenna_el_feedback(self, command):
         MOTOR_MAXSTEP = 6553.5
-        MOTOR_AZ_MAXSPEED = 65535
+        MOTOR_EL_MAXSPEED = 65535
         # arcsec/sec
         
         arcsec_cmd = command.data * 3600.
@@ -82,20 +82,20 @@ class antenna_el_feedback(object):
         self.t_past = self.t_now
 
         #limit of acceleraion
-        if abs(speed - self.speed_d) < MOTOR_MAXSTEP*rate_to_arcsec:
+        if abs(speed - self.speed_d) < MOTOR_MAXSTEP:
             self.speed_d = speed
         else:
             if (speed - self.speed_d) < 0:
                 a = -1
             else:
                 a = 1
-            self.speed_d += a*MOTOR_MAXSTEP*rate_to_arcsec
+            self.speed_d += a*MOTOR_MAXSTEP
 
         #limit of max speed
-        if self.speed_d > MOTOR_el_MAXRATE*rate_to_arcsec:
-            self.speed_d = MOTOR_el_MAXRATE*rate_to_arcsec
-        if self.speed_d < -MOTOR_el_MAXRATE*rate_to_arcsec:
-            self.speed_d = -MOTOR_el_MAXRATE*rate_to_arcsec
+        if self.speed_d > MOTOR_EL_MAXSPEED:
+            self.speed_d = MOTOR_EL_MAXSPEED
+        if self.speed_d < -MOTOR_EL_MAXSPEED:
+            self.speed_d = -MOTOR_EL_MAXSPEED
         
         command_speed = self.speed_d
         
