@@ -10,53 +10,43 @@ import std_msgs.msg
 
 class hot_position_sim(object):
 
-    bit_status = [1,1,1,1]
+    pos_status = 5000
 
     def __init__(self):
 
         self.topic_to = rospy.Publisher(
-                    name = "/opuctrl/cpz7415v_rsw0_z_step_cmd",
-                    data_class = std_msgs.msg.Bool,
+                    name = "/opuctrl/cpz7415v_rsw0_z_step",
+                    data_class = std_msgs.msg.Int64,
                     queue_size = 1,
                     latch = True
                 )
 
         self.topic_from = rospy.Subscriber(
                     name = '/opuctrl/cpz7415v_rsw0_z_step_cmd',
-                    data_class = std_msgs.msg.Bool,
+                    data_class = std_msgs.msg.Int64,
                     callback = self.update_bit_status,
                     queue_size = 1,
                 )
 
         pass
 
-    def update_bit_status(self, command, args):
-        index = args["index"]
-        self.bit_status[index] = command.data
+    def update_bit_status(self, command):
+        self.pos_status = command.data
         return
 
     def publish_hot(self):
-        self.topic_to[0].publish(0)
-        self.topic_to[1].publish(1)
-        while not rospy.is_shutdown():
-            byte = self.bit_status
 
-            if byte == [0,0,0,0] or byte == [1,0,0,0]:
-                self.topic_to[0].publish(1)
-                self.topic_to[1].publish(1)
-                time.sleep(2)
-                self.topic_to[0].publish(0)
-                self.topic_to[1].publish(1)
-            elif byte == [0,1,0,0] or byte == [1,1,0,0]:
-                self.topic_to[0].publish(1)
-                self.topic_to[1].publish(1)
-                time.sleep(2)
-                self.topic_to[0].publish(1)
-                self.topic_to[1].publish(0)
+        while not rospy.is_shutdown():
+            byte = self.pos_status
+
+            if byte == 5000 :
+                self.topic_to.publish(5000)
+            elif byte == 0  :
+                self.topic_to.publish(0)
             else:
                 pass
 
-            self.bit_status = [1,1,1,1]
+            self.bit_status = 5000
             time.sleep(0.1)
             continue
 
