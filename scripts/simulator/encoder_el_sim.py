@@ -16,7 +16,7 @@ class encoder_el_sim(object):
     def __init__(self):
 
         self.topic_to = rospy.Publisher(
-                name = "/encorder_az",
+                name = "/encorder_el",
                 data_class = std_msgs.msg.Float64,
                 latch = True,
                 queue_size = 1,
