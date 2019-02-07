@@ -52,7 +52,6 @@ class topic_monitor(object):
         # ---
         new('/hot/position', std_msgs.msg.String)
         new('/hot/position_cmd', std_msgs.msg.String)
-        new('/hot/position_lock', std_msgs.msg.Bool)
         
         """
         new('/cpz7415v_rsw0_z_step_cmd', std_msgs.msg.Int64)
