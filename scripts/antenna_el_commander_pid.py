@@ -27,36 +27,22 @@ class antenna_el_feedback(object):
     
     def __init__(self):
         self.topic_to = rospy.Publisher(
-                name = "el_speed",
+                name = "/el_speed",
                 data_class = std_msgs.msg.Float64,
                 queue_size = 1,
             )
 
         topic_from1 = rospy.Subscriber(
-                name = "el_cmd2",
+                name = "/el_cmd2",
                 data_class = std_msgs.msg.Float64,
                 callback = self.antenna_el_feedback,
                 queue_size = 1,
             )
 
         topic_from2 = rospy.Subscriber(
-                name = "el",
+                name = "/el",
                 data_class = std_msgs.msg.Float64,
                 callback = self.antenna_el_encoder,
-                queue_size = 1,
-            )
-
-        topic_from_pid = rospy.Subscriber(
-                name = "el_pid",
-                data_class = std_msgs.msg.Float32MultiArray,
-                callback = self.antenna_el_pid,
-                queue_size = 1,
-            )
-
-        topic_from_lock = rospy.Subscriber(
-                name = "el_lock",
-                data_class = std_msgs.msg.Bool,
-                callback = self.antenna_el_lock,
                 queue_size = 1,
             )
 
@@ -129,10 +115,6 @@ class antenna_el_feedback(object):
         self.p_coeff = status.data[0]
         self.i_coeff = status.data[1]
         self.d_coeff = status.data[2]
-        return
-    
-    def antenna_el_lock(self, status):
-        self.lock = status.data
         return
 
 def calc_pid(target_arcsec, encoder_arcsec, pre_arcsec, pre_hensa, ihensa, enc_before, t_now, t_past, p_coeff, i_coeff, d_coeff):
