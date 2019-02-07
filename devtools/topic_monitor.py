@@ -27,11 +27,11 @@ class topic_monitor(object):
 
         # Antenna
         # -------
-        new('/antenna/az', std_msgs.msg.Float64)
+        new('az', std_msgs.msg.Float64)
         new('/antenna/az_cmd', std_msgs.msg.Float64)
         new('/antenna/az_soft_limit', std_msgs.msg.Bool)
         new('az_speed', std_msgs.msg.Float64)
-        new('/antenna/el', std_msgs.msg.Float64)
+        new('el', std_msgs.msg.Float64)
         new('/antenna/el_cmd', std_msgs.msg.Float64)
         new('/antenna/el_soft_limit', std_msgs.msg.Bool)
         new('el_speed', std_msgs.msg.Float64)
