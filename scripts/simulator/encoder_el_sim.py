@@ -23,7 +23,7 @@ class encoder_el_sim(object):
             )
 
         self.topic_from = rospy.Subscriber(
-                name = "el_speed",
+                name = "/el_speed",
                 data_class = std_msgs.msg.Float64,
                 callback = self.encoder_el_sim,
                 queue_size = 1,
