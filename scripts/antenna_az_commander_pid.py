@@ -46,20 +46,6 @@ class antenna_az_feedback(object):
                 queue_size = 1,
             )
 
-        topic_from_pid = rospy.Subscriber(
-                name = "az_pid",
-                data_class = std_msgs.msg.Float32MultiArray,
-                callback = self.antenna_az_pid,
-                queue_size = 1,
-            )
-
-        topic_from_lock = rospy.Subscriber(
-                name = "az_lock",
-                data_class = std_msgs.msg.Bool,
-                callback = self.antenna_az_lock,
-                queue_size = 1,
-            )
-
         pass
 
     def antenna_az_feedback(self, command):
@@ -127,10 +113,6 @@ class antenna_az_feedback(object):
         self.p_coeff = status.data[0]
         self.i_coeff = status.data[1]
         self.d_coeff = status.data[2]
-        return
-    
-    def antenna_az_lock(self, status):
-        self.lock = status.data
         return
 
 def calc_pid(target_arcsec, encoder_arcsec, pre_arcsec, pre_hensa, ihensa, enc_before, t_now, t_past, p_coeff, i_coeff, d_coeff):
