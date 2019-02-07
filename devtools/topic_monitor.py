@@ -30,11 +30,14 @@ class topic_monitor(object):
         new('/antenna/az', std_msgs.msg.Float64)
         new('/antenna/az_cmd', std_msgs.msg.Float64)
         new('/antenna/az_soft_limit', std_msgs.msg.Bool)
-        new('/antenna/az_speed', std_msgs.msg.Float64)
+        new('az_speed', std_msgs.msg.Float64)
         new('/antenna/el', std_msgs.msg.Float64)
         new('/antenna/el_cmd', std_msgs.msg.Float64)
         new('/antenna/el_soft_limit', std_msgs.msg.Bool)
-        new('/antenna/el_speed', std_msgs.msg.Float64)
+        new('el_speed', std_msgs.msg.Float64)
+
+        new('/opuctrl/cpz7415v_rsw0_x_speed_cmd', std_msgs.msg.Int64)
+        new('/opuctrl/cpz7415v_rsw0_y_speed_cmd', std_msgs.msg.Int64)
         """ 
         new('/cpz7415v_rsw0_x_speed_cmd', std_msgs.msg.Int64)
         new('/cpz7415v_rsw0_y_speed_cmd', std_msgs.msg.Int64)
