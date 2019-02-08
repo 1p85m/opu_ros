@@ -43,14 +43,16 @@ class hot_position_sim(object):
                 self.topic_to.publish(2500)
                 time.sleep(5)
                 self.topic_to.publish(5000)
+                time.sleep(5)
             elif pos == 0  :
                 self.topic_to.publish(2500)
                 time.sleep(5)
                 self.topic_to.publish(0)
+                time.sleep(5)
             else:
                 pass
 
-            self.pos_status = 5000
+            #self.pos_status = 5000
             time.sleep(0.1)
             continue
 
