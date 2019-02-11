@@ -35,8 +35,8 @@ class hot_position_sim(object):
         return
 
     def publish_hot(self):
-        pos = self.pos_status
         while not rospy.is_shutdown():
+            pos = self.pos_status
             if pos == 5000 :
                 self.topic_to.publish(2500)
                 time.sleep(5)
