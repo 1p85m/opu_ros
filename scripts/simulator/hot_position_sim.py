@@ -10,9 +10,10 @@ import std_msgs.msg
 
 class hot_position_sim(object):
 
-    pos_status = ""
+
 
     def __init__(self):
+        self.pos_status =  ""
 
         self.topic_to = rospy.Publisher(
                     name = "/opuctrl/cpz7415v_rsw0_z_step",
