@@ -9,7 +9,7 @@ import std_msgs.msg
 
 
 class encoder_az_sim(object):
-    
+
     command_speed = 0.0
     enc_az = 0.0
 
@@ -40,7 +40,7 @@ class encoder_az_sim(object):
             self.enc_az += self.command_speed * 0.1 * 0.1
 
             if self.enc_az != enc_az_last:
-                self.topic_to.publish(int(self.enc_az / (360*3600/(23600*400))))
+                self.topic_to.publish(int(self.enc_az / 3600)
 
                 enc_az_last = self.enc_az
 
