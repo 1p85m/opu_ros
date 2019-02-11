@@ -35,10 +35,8 @@ class hot_position_sim(object):
         return
 
     def publish_hot(self):
-
+        pos = self.pos_status
         while not rospy.is_shutdown():
-            pos = self.pos_status
-
             if pos == 5000 :
                 self.topic_to.publish(2500)
                 time.sleep(5)
@@ -63,12 +61,11 @@ class hot_position_sim(object):
 if __name__ == "__main__":
     rospy.init_node(name)
     hot_sim = hot_position_sim()
-    
+
     pub_thread = threading.Thread(
             target = hot_sim.publish_hot(),
             daemon = True
         )
     pub_thread.start()
-    
-    rospy.spin()
 
+    rospy.spin()
