@@ -40,7 +40,7 @@ class encoder_az_sim(object):
             self.enc_az += self.command_speed * 0.1 * 0.1
 
             if self.enc_az != enc_az_last:
-                self.topic_to.publish(int(self.enc_az / 3600)
+                self.topic_to.publish(int(self.enc_az / 3600))
 
                 enc_az_last = self.enc_az
 
