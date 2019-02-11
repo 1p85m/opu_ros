@@ -9,8 +9,9 @@ import std_msgs.msg
 
 
 class hot_position_sim(object):
-
-    pos_status = 5000
+    
+    cmd = ''
+    #pos_status = 5000
 
     def __init__(self):
 
@@ -28,11 +29,19 @@ class hot_position_sim(object):
                     queue_size = 1,
                 )
 
+        self.cmd = 5000
+
         pass
 
     def update_bit_status(self, command):
-        self.pos_status = command.data
+            self.cmd = "NASCO"
+        else:
+            self.cmd = "SMART"
         return
+
+   # def update_bit_status(self, command):
+        #self.pos_status = command.data
+        #return
 
     def publish_hot(self):
 

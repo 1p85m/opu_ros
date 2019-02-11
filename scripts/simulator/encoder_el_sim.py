@@ -40,7 +40,7 @@ class encoder_el_sim(object):
             self.enc_el += self.command_speed * 0.01 * 0.617
 
             if self.enc_el != enc_el_last:
-                self.topic_to.publish(int(self.enc_el / (360*3600/(23600*400))))
+                self.topic_to.publish(int(self.enc_el / 3600))
 
                 enc_el_last = self.enc_el
 
