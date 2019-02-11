@@ -38,14 +38,14 @@ class hot_position_sim(object):
         while not rospy.is_shutdown():
             pos = self.pos_status
             if pos == 5000 :
-                #self.topic_to.publish(2500)
-                #time.sleep(5)
+                self.topic_to.publish(2500)
+                time.sleep(5)
                 self.topic_to.publish(5000)
                 #time.sleep(5)
                 #break
             elif pos == 0  :
-                #self.topic_to.publish(2500)
-                #time.sleep(5)
+                self.topic_to.publish(2500)
+                time.sleep(5)
                 self.topic_to.publish(0)
                 #time.sleep(5)
                 #break
