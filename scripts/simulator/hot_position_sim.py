@@ -38,7 +38,7 @@ class hot_position_sim(object):
 
         while not rospy.is_shutdown():
             pos = self.pos_status
-            if pos == ""
+            if pos == "" :
                 self.topic_to.piblish(0)
 
             if pos == 0 :
