@@ -10,7 +10,7 @@ import std_msgs.msg
 
 class hot_position_sim(object):
 
-    pos_status = 5000
+    pos_status = 2500
 
     def __init__(self):
 
