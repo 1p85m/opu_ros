@@ -9,14 +9,8 @@ import std_msgs.msg
 
 
 class hot_position_sim(object):
-<<<<<<< HEAD
-    
-    cmd = ''
-    #pos_status = 5000
-=======
 
 
->>>>>>> c26eefd6d9ae55c2af10855bb2a4ccf85f4e68f9
 
     def __init__(self):
         self.pos_status =  ""
@@ -35,28 +29,10 @@ class hot_position_sim(object):
                     queue_size = 1,
                 )
 
-<<<<<<< HEAD
-        self.cmd = 5000
-
-        pass
-
-    def update_bit_status(self, command):
-            self.cmd = "NASCO"
-        else:
-            self.cmd = "SMART"
-        return
-
-   # def update_bit_status(self, command):
-        #self.pos_status = command.data
-        #return
-
-    def publish_hot(self):
-=======
 
     def update_bit_status(self, command):
         self.pos_status = command.data
 
->>>>>>> c26eefd6d9ae55c2af10855bb2a4ccf85f4e68f9
 
     def move(self):
         while not rospy.is_shutdown():
@@ -70,6 +46,7 @@ class hot_position_sim(object):
                 for i in range(5):
                     pos2 = 5000-1000*(i+1)
                     self.topic_to.publish(pos2)
+                    time.sleep(1)
 
             if pos == 5000 and pos2 ==0 :
                 for i in range(5):
