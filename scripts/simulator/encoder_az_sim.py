@@ -9,7 +9,7 @@ import std_msgs.msg
 
 
 class encoder_az_sim(object):
-    
+
     command_speed = 0.0
     enc_az = 0.0
 

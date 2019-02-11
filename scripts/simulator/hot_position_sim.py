@@ -9,11 +9,17 @@ import std_msgs.msg
 
 
 class hot_position_sim(object):
+<<<<<<< HEAD
     
     cmd = ''
     #pos_status = 5000
+=======
+
+
+>>>>>>> c26eefd6d9ae55c2af10855bb2a4ccf85f4e68f9
 
     def __init__(self):
+        self.pos_status =  ""
 
         self.topic_to = rospy.Publisher(
                     name = "/opuctrl/cpz7415v_rsw0_z_step",
@@ -29,6 +35,7 @@ class hot_position_sim(object):
                     queue_size = 1,
                 )
 
+<<<<<<< HEAD
         self.cmd = 5000
 
         pass
@@ -44,40 +51,47 @@ class hot_position_sim(object):
         #return
 
     def publish_hot(self):
+=======
 
+    def update_bit_status(self, command):
+        self.pos_status = command.data
+
+>>>>>>> c26eefd6d9ae55c2af10855bb2a4ccf85f4e68f9
+
+    def move(self):
         while not rospy.is_shutdown():
             pos = self.pos_status
 
-            if pos == 5000 :
-                self.topic_to.publish(2500)
-                time.sleep(5)
-                self.topic_to.publish(5000)
-                #time.sleep(5)
-                #break
-            elif pos == 0  :
-                self.topic_to.publish(2500)
-                time.sleep(5)
+            if pos == "" :
                 self.topic_to.publish(0)
-                #time.sleep(5)
-                #break
+
+            if pos == 0 and pos2 == 5000 :
+                for i in range(5):
+                    pos2 = 5000-1000*(i+1)
+                    self.topic_to.publish(pos2)
+
+            if pos == 5000 and pos2 ==0 :
+                for i in range(5):
+                    pos2 = 0+1000*(i+1)
+                    self.topic_to.publish(pos2)
+                    time.sleep(1)
+
             else:
                 pass
-        #self.pos_status = 5000
-            time.sleep(0.1)
-            #continue
 
-        return
+            time.sleep(0.1)
+
+            continue
 
 
 if __name__ == "__main__":
     rospy.init_node(name)
     hot_sim = hot_position_sim()
-    
+
     pub_thread = threading.Thread(
-            target = hot_sim.publish_hot(),
+            target = hot_sim.move(),
             daemon = True
         )
     pub_thread.start()
-    
-    rospy.spin()
 
+    rospy.spin()
