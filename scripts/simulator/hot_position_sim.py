@@ -29,7 +29,6 @@ class hot_position_sim(object):
                     queue_size = 1,
                 )
 
-        pass
 
     def update_bit_status(self, command):
         self.pos_status = command.data
@@ -55,10 +54,10 @@ class hot_position_sim(object):
 
             else:
                 pass
+
             time.sleep(0.1)
 
-
-        return
+            continue
 
 
 if __name__ == "__main__":
