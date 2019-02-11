@@ -10,7 +10,7 @@ import std_msgs.msg
 
 class hot_position_sim(object):
 
-    pos_status = 2500
+    pos_status = ""
 
     def __init__(self):
 
@@ -34,26 +34,31 @@ class hot_position_sim(object):
         self.pos_status = command.data
 
 
-    def publish_hot(self):
-        pos = self.pos_status
+    def move(self):
+
         while not rospy.is_shutdown():
-            if pos == 5000 :
+            pos = self.pos_status
+            if pos == ""
+                self.topic_to.piblish(0)
+
+            if pos == 0 :
                 self.topic_to.publish(2500)
-                time.sleep(5)
-                self.topic_to.publish(5000)
-                #time.sleep(5)
-                #break
-            elif pos == 0  :
-                self.topic_to.publish(2500)
-                time.sleep(5)
                 self.topic_to.publish(0)
-                #time.sleep(5)
-                #break
+                for i in range(4)
+                    pos = 5000-1000*(i+1)
+                    self.topic_to.publish(pos)
+                pos = ""
+
+            if pos == 5000 :
+                for i in range(4)
+                    pos = 0+1000*(i+1)
+                    self.topic_to.publish(pos)
+                pos = ""
+
             else:
                 pass
-        #self.pos_status = 5000
             time.sleep(0.1)
-            #continue
+
 
         return
 
