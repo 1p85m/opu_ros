@@ -47,17 +47,18 @@ class hot_position_sim(object):
                     pos2 = 5000-1000*(i+1)
                     self.topic_to.publish(pos2)
                     time.sleep(1)
+                pos2 = 0
 
             if pos == 5000 and pos2 ==0 :
                 for i in range(5):
                     pos2 = 0+1000*(i+1)
                     self.topic_to.publish(pos2)
                     time.sleep(1)
+                pos2 = 5000
 
             else:
                 pass
 
-            time.sleep(0.1)
 
             continue
 
