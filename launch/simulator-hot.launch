@@ -9,14 +9,14 @@
         type = "relay.py"
         pkg = "opust_ros">
     <param name = "config_file"
-           value = "$(file opust_ros)/relay_conf/hot_position_reader.conf">
+           value = "$(file opust_ros)/relay_conf/hot_position_reader.conf" />
   </node>
 
   <node name = "hot_position_writer"
         type = "relay.py"
         pkg = "opust_ros">
     <param name = "config_file"
-           value = "$(file opust_ros)/relay_conf/hot_position_writer.conf">
+           value = "$(file opust_ros)/relay_conf/hot_position_writer.conf" />
   </node>
 
 </launch>
