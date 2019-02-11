@@ -35,7 +35,6 @@ class hot_position_sim(object):
 
 
     def move(self):
-
         while not rospy.is_shutdown():
             pos = self.pos_status
             if pos == "" :
@@ -68,7 +67,7 @@ if __name__ == "__main__":
     hot_sim = hot_position_sim()
 
     pub_thread = threading.Thread(
-            target = hot_sim.publish_hot(),
+            target = hot_sim.move(),
             daemon = True
         )
     pub_thread.start()
