@@ -10,7 +10,7 @@ import std_msgs.msg
 
 class hot_position_sim(object):
 
-    pos_status = 2500
+    pos_status = 5000
 
     def __init__(self):
 
@@ -35,8 +35,8 @@ class hot_position_sim(object):
 
 
     def publish_hot(self):
+        pos = self.pos_status
         while not rospy.is_shutdown():
-            pos = self.pos_status
             if pos == 5000 :
                 self.topic_to.publish(2500)
                 time.sleep(5)
