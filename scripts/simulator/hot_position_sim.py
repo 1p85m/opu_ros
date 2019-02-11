@@ -40,6 +40,7 @@ class hot_position_sim(object):
 
             if pos == "" :
                 self.topic_to.publish(0)
+                pos2 = 0
 
             if pos == 0 and pos2 == 5000 :
                 for i in range(5):
