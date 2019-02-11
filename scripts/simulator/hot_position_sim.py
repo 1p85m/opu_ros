@@ -10,8 +10,6 @@ import std_msgs.msg
 
 class hot_position_sim(object):
 
-    pos_status = 5000
-
     def __init__(self):
 
         self.topic_to = rospy.Publisher(
