@@ -37,21 +37,20 @@ class hot_position_sim(object):
     def move(self):
         while not rospy.is_shutdown():
             pos = self.pos_status
+
             if pos == "" :
                 self.topic_to.publish(0)
 
-            if pos == 0 :
+            if pos == 0 and pos2 == 5000 :
                 for i in range(5):
-                    pos = 5000-1000*(i+1)
-                    self.topic_to.publish(pos)
-                pos = ""
+                    pos2 = 5000-1000*(i+1)
+                    self.topic_to.publish(pos2)
 
-            if pos == 5000 :
+            if pos == 5000 and pos2 ==0 :
                 for i in range(5):
-                    pos = 0+1000*(i+1)
-                    self.topic_to.publish(pos)
+                    pos2 = 0+1000*(i+1)
+                    self.topic_to.publish(pos2)
                     time.sleep(1)
-                pos = ""
 
             else:
                 pass
