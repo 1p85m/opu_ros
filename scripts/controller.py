@@ -30,7 +30,7 @@ class PS(object):
     pub = {
             #"topic_name":rospy.Publisher(name, data_class, queue_size, latch)
             }
-    
+
     def __init__(self):
         pass
 
@@ -73,7 +73,7 @@ class ANTENNA(object):
 
     def _el_move(self, command): # deg
         name = "/antenna/el_cmd"
-        
+
         self.ps.set_publisher(
                 topic_name = name,
                 data_class = std_msgs.msg.Float64,
@@ -111,7 +111,7 @@ class ANTENNA(object):
         [self.ps.publish(topic_name="/obs/{}".format(tar), msg=target[tar][0]) for tar in target]
         return
 
-    def otf_scan(self, otf_x, otf_y, otf_coord_sys="altaz", otf_dx=1, otf_dy=1, otf_dt=1, otf_num=30, otf_rampt=3, otf_delay=10, current_time=time.time(), otf_off_x=0, otf_off_y=0, otf_offcoord="j2000", otf_dcos=0, otf_hosei="hosei_230.txt", otf_lamda=2600, otf_limit=True):
+    def otf_scan(self, otf_x, otf_y, otf_coord_sys="altaz", otf_dx=1, otf_dy=1, otf_dt=1, otf_num=30, otf_rampt=3, otf_delay=10, otf_off_x=0, otf_off_y=0, otf_offcoord="j2000", otf_dcos=0, otf_hosei="hosei_230.txt", otf_lamda=2600, otf_limit=True):
         target = {
                 "otf_x": [otf_x, std_msgs.msg.Float64],
                 "otf_y": [otf_y, std_msgs.msg.Float64],
@@ -129,10 +129,11 @@ class ANTENNA(object):
                 "otf_lamda": [otf_lamda, std_msgs.msg.Float64],
                 "otf_dcos": [otf_dcos, std_msgs.msg.Float64],
                 "otf_limit": [otf_limit, std_msgs.msg.Bool],
+                "otf_timestamp": [time.time(), std_msgs.msg.Float64],
                 }
 
         [self.ps.set_publisher(
-                topic_name = "/obs/{}".format(tar), 
+                topic_name = "/obs/{}".format(tar),
                 data_class = target[tar][1],
                 queue_size = 1,
                 latch = True
@@ -143,7 +144,7 @@ class ANTENNA(object):
 
     def stop(self):
         name = "/obs/stop_cmd"
-        
+
         self.ps.set_publisher(
                 topic_name = name,
                 data_class = std_msgs.msg.Bool,
@@ -162,7 +163,7 @@ class HOT(object):
 
     def position(self, command):
         name = "/hot/position_cmd"
-        
+
         self.ps.set_publisher(
                 topic_name = name,
                 data_class = std_msgs.msg.String,
@@ -181,7 +182,7 @@ class SPECTROMETER(object):
 
     def oneshot(self, exposure):
         name = "/spectrometer/oneshot_cmd"
-        
+
         self.ps.set_publisher(
                 topic_name = name,
                 data_class = std_msgs.msg.Float32,
@@ -191,4 +192,3 @@ class SPECTROMETER(object):
 
         self.ps.publish(topic_name=name, msg=exposure)
         return
-
