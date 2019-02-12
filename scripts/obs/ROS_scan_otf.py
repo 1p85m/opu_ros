@@ -27,7 +27,7 @@ class worldcoord(object):
     dt = 0
     num = 0
     delay = 0
-    rampt = 0
+    rampt = 1
     off_x = 0
     off_y = 0
     offcoord = ""
@@ -155,7 +155,7 @@ class worldcoord(object):
             self.dy= 0
             self.dt= 0
             self.num= 0
-            self.rampt= 0
+            self.rampt= 1
             self.delay= 0
             self.off_x= 0
             self.off_y= 0
