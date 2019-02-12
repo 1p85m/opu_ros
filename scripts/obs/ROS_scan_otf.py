@@ -42,7 +42,7 @@ class worldcoord(object):
 
         rospy.Subscriber("otf_x", Float64, self._receive_x , queue_size=1)
         rospy.Subscriber("otf_y", Float64, self._receive_y , queue_size=1)
-        rospy.Subscriber("otf_coord_sys", Float64, self._receive_coord_sys , queue_size=1)
+        rospy.Subscriber("otf_coord_sys", String, self._receive_coord_sys , queue_size=1)
         rospy.Subscriber("otf_dx", Float64, self._receive_dx , queue_size=1)
         rospy.Subscriber("otf_dy", Float64, self._receive_dy , queue_size=1)
         rospy.Subscriber("otf_dt", Float64, self._receive_dt , queue_size=1)
@@ -51,12 +51,12 @@ class worldcoord(object):
         rospy.Subscriber("otf_delay", Float64, self._receive_delay , queue_size=1)
         rospy.Subscriber("otf_off_x", Float64, self._receive_off_x , queue_size=1)
         rospy.Subscriber("otf_off_y", Float64, self._receive_off_y , queue_size=1)
-        rospy.Subscriber("otf_offcoord", Float64, self._receive_offcoord , queue_size=1)
+        rospy.Subscriber("otf_offcoord", String, self._receive_offcoord , queue_size=1)
         rospy.Subscriber("otf_dcos", Float64, self._receive_dcos , queue_size=1)
-        rospy.Subscriber("otf_hosei", Float64, self._receive_hosei , queue_size=1)
+        rospy.Subscriber("otf_hosei", String, self._receive_hosei , queue_size=1)
         rospy.Subscriber("otf_lamda", Float64, self._receive_lamda , queue_size=1)
-        rospy.Subscriber("otf_limit", Float64, self._receive_limit , queue_size=1)
-        rospy.Subscriber("otf_from_node", Float64, self._receive_from_node , queue_size=1)
+        rospy.Subscriber("otf_limit", Bool, self._receive_limit , queue_size=1)
+        rospy.Subscriber("otf_from_node", String, self._receive_from_node , queue_size=1)
         rospy.Subscriber("otf_timestamp", Float64, self._receive_timestamp , queue_size=1)
 
 

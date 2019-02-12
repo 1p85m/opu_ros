@@ -21,7 +21,9 @@ class Antenna(object):
         'el_list':[],
         'start_time_list':[],
         }
-
+    x_list = []
+    y_list = []
+    coord = ""
     lock_az = False
     lock_el = False
 

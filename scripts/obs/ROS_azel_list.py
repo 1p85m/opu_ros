@@ -23,7 +23,7 @@ node_name = "azel_list"
 class azel_list(object):
 
 
-    timelist = []
+    time_list = []
     x_list = []
     y_list = []
     coord = ""
@@ -91,7 +91,7 @@ class azel_list(object):
         self.timestamp= q.data
 
     def _receive_time_list(self, q):
-        if q.data < self.start_time:
+        if q.data[0] < self.start_time:
             print("receive_old_list...")
         else:
             self.stop_flag = False
@@ -107,18 +107,28 @@ class azel_list(object):
 
     def create_azel_list(self):
         print("wait comming list...")
-        while (self.timelist =="") and (not rospy.is_shutdown()) :
+        while (self.time_list =="") and (not rospy.is_shutdown()) :
             time.sleep(0.1)
             continue
         print("start_calclation!!")
         loop = 0
         check = 0
-        while not rospy.is_shutdown():
-            if not self.timelist:
+        x_list = self.x_list
+        y_list = self.y_list
+        time_list = self.time_list
+        coord = self.coord
+        off_az = self.off_az
+        off_el = self.off_el
+        hosei = self.hosei
+        lamda = self.lamda
+        limit = self.limit
+
+        while not rospy.is_shutdown(): 
+            if not self.time_list:
                 time.sleep(1.)
                 continue
 
-            else:
+            elif time_list!=self.time_list:
                 loop = 0
                 check = 0
                 x_list = self.x_list
@@ -130,6 +140,9 @@ class azel_list(object):
                 hosei = self.hosei
                 lamda = self.lamda
                 limit = self.limit
+
+            else:
+                pass
 
             if self.stop_flag == False:
                 if len(x_list) > 2:
@@ -197,7 +210,7 @@ class azel_list(object):
 
                     ret = self.calc.coordinate_calc(x_list2, y_list2, astro_time,
                                                     coord, off_az, off_el,
-                                                    hosei, lamda, limit)
+                                                    hosei, lamda)
 
                 else:
                     limit_flag = True

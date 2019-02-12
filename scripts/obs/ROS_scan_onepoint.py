@@ -23,8 +23,8 @@ class worldcoord(object):
     y = 0
     coord = 0
     planet = 0
-    off_az = 0
-    off_el = 0
+    off_x = 0
+    off_y = 0
     off_coord = ""
     hosei = ""
     lamda = 0
@@ -84,19 +84,16 @@ class worldcoord(object):
         self.coord = q.data
 
     def _receive_offcoord(self, q):
-        self.coord = q.data
+        self.off_coord = q.data
 
     def _receive_planet(self, q):
         self.planet = q.data
 
     def _receive_off_x(self, q):
-        self.off_az = q.data
+        self.off_x = q.data
 
     def _receive_off_y(self, q):
-        self.off_el = q.data
-
-    def _receive_off_coord(self, q):
-        self.off_coord = q.data
+        self.off_y = q.data
 
     def _receive_hosei(self, q):
         self.hosei = q.data
@@ -124,8 +121,8 @@ class worldcoord(object):
             y = self.y
             coord = self.coord
             planet = self.planet
-            off_az = self.off_az
-            off_el = self.off_el
+            off_x = self.off_x
+            off_y = self.off_y
             off_coord = self.off_coord
             hosei = self.hosei
             lamda = self.lamda
@@ -133,18 +130,18 @@ class worldcoord(object):
             limit = self.limit
             timestamp = self.timestamp
 
-            self.x = ""
-            self.y = ""
+            self.x = 0
+            self.y = 0
             self.coord = ""
             self.planet = ""
-            self.off_az = ""
-            self.off_el = ""
+            self.off_x = 0
+            self.off_y = 0
             self.off_coord = ""
             self.hosei = ""
-            self.lamda = ""
-            self.dcos = ""
-            self.limit = ""
-            self.timestamp = ""
+            self.lamda = 0
+            self.dcos = 0
+            self.limit = False
+            self.timestamp = 0
 
             if timestamp:
                 print("start_create_list")
@@ -152,7 +149,7 @@ class worldcoord(object):
                 ret = calc_offset.calc_offset([x], [y],
                                               coord,
                                               [off_x], [off_y],
-                                              offcoord,
+                                              off_coord,
                                               dcos,
                                               [dt.fromtimestamp(timestamp)])
                 if not ret:
@@ -166,14 +163,14 @@ class worldcoord(object):
                 array.data = [ret[1], ret[1]]
                 self.pub_y_list.publish(array)
 
-                array.data = [self.timestamp, self.timestamp+3600.]
+                array.data = [timestamp, timestamp+3600.]
                 self.pub_time_list.publish(array)
 
                 msg = String()
-                msg.data = self.coord
+                msg.data = coord
                 self.pub_coord.publish(msg)
 
-                msg.data = self.hosei
+                msg.data = hosei
                 self.pub_hosei.publish(msg)
 
                 msg = Float32()
@@ -184,11 +181,11 @@ class worldcoord(object):
                 self.pub_off_el.publish(msg)
 
                 msg = Bool()
-                msg.data = self.limit
+                msg.data = limit
                 self.pub_limit.publish(msg)
 
                 msg = Float64()
-                msg.data = self.lamda
+                msg.data = lamda
                 self.pub_lamda.publish(msg)
 
                 msg.data = current_time
