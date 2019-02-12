@@ -111,7 +111,7 @@ class ANTENNA(object):
         [self.ps.publish(topic_name="/obs/{}".format(tar), msg=target[tar][0]) for tar in target]
         return
 
-    def otf_scan(self, otf_x, otf_y, otf_coord_sys="altaz", otf_dx=1, otf_dy=1, otf_dt=1, otf_num=5, otf_rampt=3, otf_delay=0, otf_off_x=0, otf_off_y=0, otf_offcoord="j2000", otf_dcos=0, otf_hosei="hosei_230.txt", otf_lamda=2600, otf_limit=True):
+    def otf_scan(self, otf_x, otf_y, otf_coord_sys="altaz", otf_dx=1, otf_dy=1, otf_dt=1, otf_num=5, otf_rampt=3, otf_delay=1, otf_off_x=0, otf_off_y=0, otf_offcoord="j2000", otf_dcos=0, otf_hosei="hosei_230.txt", otf_lamda=2600, otf_limit=True):
         target = {
                 "otf_x": [otf_x, std_msgs.msg.Float64],
                 "otf_y": [otf_y, std_msgs.msg.Float64],
