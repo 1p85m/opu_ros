@@ -21,7 +21,7 @@ class worldcoord(object):
 
     x = 0
     y = 0
-    coord_sys = 0
+    coord_sys = ""
     dx = 0
     dy = 0
     dt = 0
@@ -30,12 +30,11 @@ class worldcoord(object):
     rampt = 0
     off_az = 0
     off_el = 0
-    offcoord =0
+    offcoord = ""
     dcos = 0
-    hosei = 0
+    hosei = ""
     lamda = 0
-    limit = 0
-    hosei = 0
+    limit = False
     timestamp=0
 
     def __init__(self):
@@ -149,22 +148,22 @@ class worldcoord(object):
             limit = self.limit
             timestamp = self.timestamp
 
-            self.x= ""
-            self.y= ""
+            self.x= 0
+            self.y= 0
             self.coord_sys= ""
-            self.dx= ""
-            self.dy= ""
-            self.dt= ""
-            self.num= ""
-            self.rampt= ""
-            self.delay= ""
-            self.off_az= ""
-            self.off_el= ""
-            self.dcos= ""
+            self.dx= 0
+            self.dy= 0
+            self.dt= 0
+            self.num= 0
+            self.rampt= 0
+            self.delay= 0
+            self.off_az= 0
+            self.off_el= 0
+            self.dcos= 0
             self.hosei= ""
-            self.lamda= ""
-            self.limit= ""
-            self.timestamp= ""
+            self.lamda= 0
+            self.limit= False
+            self.timestamp= 0
 
             if timestamp:
                 print("start_create_list")
