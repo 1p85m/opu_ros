@@ -28,8 +28,8 @@ class worldcoord(object):
     num = 0
     delay = 0
     rampt = 0
-    off_az = 0
-    off_el = 0
+    off_x = 0
+    off_y = 0
     offcoord = ""
     dcos = 0
     hosei = ""
@@ -102,10 +102,10 @@ class worldcoord(object):
         self.rampt = q.data
 
     def _receive_off_x(self, q):
-        self.off_az = q.data
+        self.off_x = q.data
 
     def _receive_off_y(self, q):
-        self.off_el = q.data
+        self.off_y = q.data
 
     def _receive_offcoord(self, q):
         self.offcoord = q.data
@@ -140,8 +140,8 @@ class worldcoord(object):
             num = self.num
             rampt = self.rampt
             delay = self.delay
-            off_az = self.off_az
-            off_el = self.off_el
+            off_x = self.off_x
+            off_y = self.off_y
             dcos = self.dcos
             hosei = self.hosei
             lamda = self.lamda
@@ -157,8 +157,8 @@ class worldcoord(object):
             self.num= 0
             self.rampt= 0
             self.delay= 0
-            self.off_az= 0
-            self.off_el= 0
+            self.off_x= 0
+            self.off_y= 0
             self.dcos= 0
             self.hosei= ""
             self.lamda= 0
@@ -168,13 +168,13 @@ class worldcoord(object):
             if timestamp:
                 print("start_create_list")
                 #ret = calc_offset.calc_offset(command.x, command.y, command.coord,
-                #                              command.off_az, command.off_y, command.offcoord,
+                #                              command.off_x, command.off_y, command.offcoord,
                 #                              command.dcos)
 
-                start_x = off_az-float(dx)/2.-float(dx)/float(dt)*rampt
+                start_x = off_x-float(dx)/2.-float(dx)/float(dt)*rampt
                 start_y = off_y-float(dy)/2.-float(dy)/float(dt)*rampt
                 total_t = rampt + dt * num
-                end_x = off_az + dx * (num - 0.5)
+                end_x = off_x + dx * (num - 0.5)
                 end_y = off_y + dy * (num - 0.5)
                 print(start_x, end_x, x)
                 #off_dx_vel = (end_x - start_x) / total_t #(obs_end - obs_start)
